@@ -5,12 +5,12 @@ on:
     branches: [main]
 
 jobs:
-  ort_scan:
+  ort:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: ORT ausführen
-        uses: MarcHerdina/OSS-Action@v1.0.0
-        with:
-          project-path: ${{ github.workspace }}
-          report-formats: 'WebApp,AOSD2.1'
+      - name: Use HTTPS instead of SSH for Git cloning
+        run: git config --global url.https://github.com/.insteadOf ssh://git@github.com/
+      - name: Checkout project
+        uses: actions/checkout@v3
+      - name: Run GitHub Action for ORT
+        uses: MarcHerdina/OSS-Action@main
