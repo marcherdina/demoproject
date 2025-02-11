@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: ORT ausführen
-        uses: MarcHerdina/OSS-Action@main
+        uses: MarcHerdina/OSS-Action@v1.0.0
         with:
           project-path: ${{ github.workspace }}
           report-formats: 'WebApp,AOSD2.1'
