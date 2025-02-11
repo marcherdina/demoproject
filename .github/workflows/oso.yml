@@ -1,0 +1,16 @@
+name: OSS ORT-Aktion
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  ort_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: ORT ausführen
+        uses: MarcHerdina/ORT-Action@v1
+        with:
+          project-path: ${{ github.workspace }}
+          report-formats: 'WebApp,AOSD2.1'
