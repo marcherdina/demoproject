@@ -8,9 +8,30 @@ jobs:
   ort:
     runs-on: ubuntu-latest
     steps:
-      - name: Use HTTPS instead of SSH for Git cloning
-        run: git config --global url.https://github.com/.insteadOf ssh://git@github.com/
       - name: Checkout project
         uses: actions/checkout@v3
+        with:
+          repository: 'jshttp/mime-types'
+      - name: Add .netrc
+        run: >
+          default
+          login ${{ secrets.NETRC_LOGIN }}
+          password ${{ secrets.NETRC_PASSWORD }}" > ~/.netrc
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_github
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_github.pub
+          chmod 600 ~/.ssh/id_github*
+          cat >>~/.ssh/config <<END
+          Host github.com
+            HostName ssh.github.com
+            User git
+            Port 443
+            IdentityFile ~/.ssh/id_github
+            StrictHostKeyChecking no
+          END
       - name: Run GitHub Action for ORT
         uses: marcherdina/oss-action@main
+        with:
+          allow-dynamic-versions: 'true'
