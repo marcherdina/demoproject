@@ -2,7 +2,7 @@ name: OSS ORT-Aktion
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   ort_scan:
