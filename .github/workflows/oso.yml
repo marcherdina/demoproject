@@ -13,4 +13,4 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v3
       - name: Run GitHub Action for ORT
-        uses: marcherdina/oss-action@main
+        uses: marcherdina/oss-action2@main
