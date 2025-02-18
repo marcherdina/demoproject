@@ -12,8 +12,6 @@ jobs:
         run: git config --global url.https://github.com/.insteadOf ssh://git@github.com/
       - name: Checkout project
         uses: actions/checkout@v3
-        with:
-          repository: 'jshttp/mime-types'
       - name: Run GitHub Action for ORT
         uses: marcherdina/oss-action@main
         with:
