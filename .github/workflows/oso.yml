@@ -16,3 +16,12 @@ jobs:
         uses: marcherdina/oss-action@main
         with:
           ort-config-repository: 'https://github.com/marcherdina/ort-github'
+          run: >
+            cache-dependencies,
+            labels,
+            analyzer,
+            scanner,
+            evaluator,
+            advisor,
+            reporter,
+            upload-results
