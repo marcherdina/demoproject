@@ -1,32 +1,32 @@
 {
-  "name": "inter-mcd",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "private": true,
+  "name": "stuq-koa",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "index.js",
   "dependencies": {
-    "@angular/animations": "^17.0.0",
-    "@ngx-translate/core": "^15.0.0",
-    "@ngx-translate/http-loader": "^8.0.0",
-    "bson": "^6.3.0",
-    "zone.js": "~0.14.2"
+    "gitbook-plugin-toc2": "^1.0.5"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.10",
-    "@angular/cli": "^17.0.10",
-    "@angular/compiler-cli": "^17.0.0",
-    "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.1.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.2.2"
-  }
+    "gulp": "^3.8.10",
+    "gulp-gh-pages": "^0.4.0",
+    "gulp-open": "^0.3.1",
+    "gulp-rename": "^1.2.0",
+    "shelljs": "^0.3.0"
+  },
+  "scripts": {
+    "start": "watch -i 300ms gitbook serve",
+     "open": "npm run build && open _book/index.html",
+     "build": "gitbook build . --gitbook=2.0.1",
+     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i5ting/stuq-koa-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i5ting/stuq-koa-/issues"
+  },
+  "homepage": "https://github.com/i5ting/stuq-koa-#readme"
 }
