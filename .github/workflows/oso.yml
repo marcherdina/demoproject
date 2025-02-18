@@ -15,13 +15,29 @@ jobs:
       - name: Run GitHub Action for ORT
         uses: marcherdina/oss-action@main
         with:
-          ort-config-repository: 'https://github.com/marcherdina/ort-github'
-          run: >
-            cache-dependencies,
-            labels,
-            analyzer,
-            scanner,
-            evaluator,
-            advisor,
-            reporter,
-            upload-results
+          db-url: ${{ secrets.POSTGRES_URL }}
+          db-username: ${{ secrets.POSTGRES_USERNAME }}
+          db-password: ${{ secrets.POSTGRES_PASSWORD }}
+          run: 'cache-dependencies,analyzer,scanner,evaluator,advisor,reporter,upload-results'
+
+# jobs:
+#  ort:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Use HTTPS instead of SSH for Git cloning
+#        run: git config --global url.https://github.com/.insteadOf ssh://git@github.com/
+#      - name: Checkout project
+#        uses: actions/checkout@v3
+#      - name: Run GitHub Action for ORT
+#        uses: marcherdina/oss-action@main
+#        with:
+#          ort-config-repository: 'https://github.com/marcherdina/ort-github'
+#          run: >
+#            cache-dependencies,
+#            labels,
+#            analyzer,
+#            scanner,
+#            evaluator,
+#            advisor,
+#            reporter,
+#            upload-results
